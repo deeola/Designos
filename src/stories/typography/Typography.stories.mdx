@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
 import Stack from "../../components/stack";
+import Card from '../../components/card'
 
 <Meta title="Foundations/Typography" />
 
@@ -18,3 +19,10 @@ Fonts evoke associations. As an essential part of the corporate design, the hous
 
 Jost! is a widely used font, which is characterized by the large selection of font styles and supported languages. It appears reduced, clear and technical. The font style Light is used for running texts. The cut Medium is used for highlighting in the text.
 
+<Card>
+  <Heading mode="title">Jost</Heading>
+  <Heading mode="card">ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ</Heading>
+  <Heading mode="card">abcdefghijklmnopqrstuvwxyzßäöü</Heading>
+  <Heading mode="card">.,:;“---©®«»Ø§%/=?!€£$@+#~*^°})]</Heading>
+  <Heading mode="card">0123456789</Heading>
+</Card>
