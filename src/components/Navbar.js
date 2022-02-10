@@ -2,37 +2,62 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../assets/shared/desktop/logo-dark.png";
 
+//my Funbctions
+const handleColorType = (color) => {
+  switch (color) {
+    case "Active":
+      return "color:  #E7816B; ";
+    default:
+      return "color: #333136; ";
+  }
+};
+
 const NavSytle = styled.nav`
   display: flex;
   justify-content: space-between;
-  width: 95%;
-  margin: 20px auto;
+  align-items: center;
+  width: 90%;
+  margin: 40px auto;
 `;
 
 const UnorderedList = styled.ul`
   display: flex;
   justify-content: space-between;
-  width: 50%;
-
-  ul {
-    
-  }
+  width: 700px;
 
   li {
-  }
+    list-style: none;
+    width: 30%;
 
-  a {
-    text-decoration: none;
+    text-align: end;
   }
 `;
-const LogoContainer = styled.div``;
+
+const LinkTag = styled.a`
+  text-decoration: none;
+  ${({ color }) => handleColorType(color)};
+  font-weight: 700;
+  font-size: 14px;
+`;
+
+const LogoContainer = styled.div`
+  width: 196px;
+
+  img {
+    width: 100%;
+  }
+`;
+
 const TabLogoContainer = styled.div`
   display: none;
 `;
 const MobileLogoContainer = styled.div`
   display: none;
 `;
-export const Navbar = () => {
+
+//styled component
+
+export const Navbar = ({ color, ...props }) => {
   return (
     <NavSytle>
       <LogoContainer>
@@ -46,13 +71,15 @@ export const Navbar = () => {
       </MobileLogoContainer>
       <UnorderedList>
         <li>
-          <a href="#">OUR COMPANY</a>
+          <LinkTag color={color} href="www.facebook.com">
+            OUR COMPANY
+          </LinkTag>
         </li>
         <li>
-          <a href="#">LOCATIONS</a>
+          <LinkTag href="222.facebook.com">LOCATIONS</LinkTag>
         </li>
         <li>
-          <a href="#">CONTACT</a>
+          <LinkTag href="www.facebook.com">CONTACT</LinkTag>
         </li>
       </UnorderedList>
     </NavSytle>
@@ -60,3 +87,5 @@ export const Navbar = () => {
 };
 
 export default Navbar;
+
+

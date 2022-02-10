@@ -19,7 +19,6 @@ import styled from 'styled-components';
 
 
 const MyButtons = styled.button`
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 background-color: ${props => props.primary ? '#FFFFFF' : "E7816B"};; 
 width: 152px;
 height: 56px;
@@ -29,7 +28,7 @@ outline:none;
 border: none;
 font-size: 15px;
 text-transform: uppercase;
-font-weight: 400;
+font-weight: 700;
 color: white;
 font-family: 'Jost', sans-serif;
 ${({ color }) => handleColorType(color)};
