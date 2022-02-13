@@ -13,12 +13,13 @@ export const HeroContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-position: 65rem -10px;
+  background-position: 38rem -30px;
   background-repeat: no-repeat;
-  background-size: 40rem;
+  background-size: 35rem;
   background-image: url(${phoneImage});
   position: relative;
   padding: 100px 70px;
+
 
   &:after {
     content: "";
@@ -34,32 +35,12 @@ export const HeroContainer = styled.div`
   }
 `;
 
-export const LeftDiv = styled.div``;
+export const LeftDiv = styled.div`
+width: 60%;
 
-export const RightDiv = styled.div`
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: 20rem;
-  width: 70rem;
-  height: 20rem;
-  &:after {
-    content: "";
-  }
-
-  position: relative;
-  left: 100px;
-  top: 200px;
-  z-index: 2;
-  /* background: orange; */
 `;
 
-export const ImageTag = styled.img`
-  width: 50%;
-  position: relative;
-  z-index: -1;
-  left: 400px;
-  top: 300px;
-`;
+
 
 export const Header = styled.div`
 margin: 30px 0px;

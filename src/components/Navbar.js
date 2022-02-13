@@ -16,14 +16,14 @@ const NavSytle = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 94%;
   margin: 40px auto;
 `;
 
 const UnorderedList = styled.ul`
   display: flex;
   justify-content: space-between;
-  width: 700px;
+  width: 40%;
 
   li {
     list-style: none;
@@ -59,6 +59,7 @@ const MobileLogoContainer = styled.div`
 
 export const Navbar = ({ color, ...props }) => {
   return (
+    
     <NavSytle>
       <LogoContainer>
         <img alt="logo" src={logo}></img>
