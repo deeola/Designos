@@ -1,11 +1,10 @@
 import React from "react";
-import Container from "./Container";
+import { Container, HeaderOne, Para } from "../globalStyles";
 import styled from "styled-components";
 import Button from "../stories/components/Button";
 import BgImage from "../assets/home/desktop/bg-pattern-hero-home.svg";
 import phoneImage from "../assets/home/desktop/image-hero-phone.png";
-import HeaderOne from './headerOne';
-import Para from './paragraph'
+
 
 export const HeroContainer = styled.div`
   background-color: ${({ backgoundColor = "#E7816B" }) => backgoundColor};
@@ -20,6 +19,8 @@ export const HeroContainer = styled.div`
   position: relative;
   padding: 100px 70px;
 
+ 
+
 
   &:after {
     content: "";
@@ -33,6 +34,19 @@ export const HeroContainer = styled.div`
     background-repeat: no-repeat;
     background-position: right;
   }
+
+  
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 375px) {
+    border-radius: unset;
+
+	}
+
+
 `;
 
 export const LeftDiv = styled.div`

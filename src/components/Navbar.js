@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import logo from "../assets/shared/desktop/logo-dark.png";
+import iconClose from '../assets/shared/mobile/icon-close.svg';
+import ham from '../assets/shared/mobile/icon-hamburger.svg'
 
 //my Funbctions
 const handleColorType = (color) => {
@@ -21,55 +23,96 @@ const NavSytle = styled.nav`
 `;
 
 const UnorderedList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  width: 40%;
+  
+  
+  display: none ;
 
-  li {
+  @media screen and (min-width: 414px) {
+    display: flex;
+  justify-content: space-between;
+  width: 80%;
+  background: red;
+ 
+
+   li {
     list-style: none;
     width: 30%;
-
     text-align: end;
+    background: blue;
+ 
   }
+
+
+	}
+
+  @media screen and (min-width: 843px ) {
+		width: 70%;
+
+	} 
+
+
+  
 `;
 
 const LinkTag = styled.a`
   text-decoration: none;
   ${({ color }) => handleColorType(color)};
   font-weight: 700;
-  font-size: 14px;
+  
 `;
 
-const LogoContainer = styled.div`
-  width: 196px;
 
-  img {
-    width: 100%;
-  }
+
+const LogoContainer = styled.img`
+  width: 10rem;
+
 `;
 
-const TabLogoContainer = styled.div`
+
+const MobileLogoContainer = styled.img`
   display: none;
+  @media screen and (max-width: 375px) {
+		display: block;
+    width: 202px;
+   
+
+	}
 `;
-const MobileLogoContainer = styled.div`
-  display: none;
-`;
+
+const MobileNavIcon=  styled.div`
+width: : 24px;
+
+
+  @media screen and (min-width: 414px) {
+    display: none;
+
+
+  
+
+	}
+`
+
+const NavOpen = styled.img`
+
+`
+
+const NavClose=styled.img`
+display: none;
+`
 
 //styled component
 
 export const Navbar = ({ color, ...props }) => {
+  // const [nav, useNav] = useState(false)
+  // const handleClick = () =>{
+  //   useNav(!nav)
+  // }
   return (
     
     <NavSytle>
-      <LogoContainer>
-        <img alt="logo" src={logo}></img>
+      <LogoContainer alt="logo" src={logo}>
       </LogoContainer>
-      <TabLogoContainer>
-        <img alt="logo" src={logo}></img>
-      </TabLogoContainer>
-      <MobileLogoContainer>
-        <img alt="logo" src={logo}></img>
-      </MobileLogoContainer>
+      
       <UnorderedList>
         <li>
           <LinkTag color={color} href="www.facebook.com">
@@ -83,6 +126,14 @@ export const Navbar = ({ color, ...props }) => {
           <LinkTag href="www.facebook.com">CONTACT</LinkTag>
         </li>
       </UnorderedList>
+      <MobileNavIcon >
+        <NavOpen src={ham} alt='open menu'>
+
+        </NavOpen>
+        <NavClose src={iconClose} alt='icon close'>
+
+        </NavClose>
+      </MobileNavIcon>
     </NavSytle>
   );
 };
