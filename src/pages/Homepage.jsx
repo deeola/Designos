@@ -6,7 +6,7 @@ import {Container} from '../globalStyles'
 function Homepage() {
   return (
     <Container>
-    <Navbar />
+
     <Hero />
     </Container>
     

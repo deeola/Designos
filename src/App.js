@@ -8,13 +8,14 @@ import Contact from "./pages/Contact";
 import GraphicDesign from "./pages/GraphicDesign";
 import WebDesign from "./pages/WebDesign";
 import AppDesign from "./pages/AppDesign";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <GlobalStyle />
-
+        <Navbar />
         <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route path="/about" element={<About />} />
