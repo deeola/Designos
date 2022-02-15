@@ -57,7 +57,7 @@ const LogoContainer = styled.img`
 
 
 const MobileNavIcon = styled.div`
-width: : 24px;
+width: 24px;
 
 
   @media screen and (min-width: 414px) {
