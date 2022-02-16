@@ -8,7 +8,7 @@ import phoneImage from "../assets/home/desktop/image-hero-phone.png";
 
 export const HeroContainer = styled.div`
   background-color: ${({ backgoundColor = "#E7816B" }) => backgoundColor};
-  border-radius: 20px;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,9 +18,6 @@ export const HeroContainer = styled.div`
   background-image: url(${phoneImage});
   position: relative;
   padding: 100px 70px;
-
- 
-
 
   &:after {
     content: "";
@@ -37,14 +34,17 @@ export const HeroContainer = styled.div`
 
   
 
+  
+
+  @media screen and (min-width: 415px) {
+    border-radius: unset;
+    border-radius: 20px;
+
+	}
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
-
-  @media screen and (max-width: 375px) {
-    border-radius: unset;
-
-	}
 
 
 `;

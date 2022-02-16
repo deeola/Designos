@@ -4,6 +4,7 @@ import logo from "../assets/shared/desktop/logo-dark.png";
 import iconClose from "../assets/shared/mobile/icon-close.svg";
 import ham from "../assets/shared/mobile/icon-hamburger.svg";
 import { Link } from "react-router-dom";
+import { Container } from "../globalStyles";
 
 //my Funbctions
 const handleColorType = (color) => {
@@ -15,55 +16,80 @@ const handleColorType = (color) => {
   }
 };
 
-
 const NavSytle = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 94%;
-  margin: 40px auto;
-  font-family: 'Jost', sans-serif;
+  width: 100%;
+  margin: 20px auto;
+  font-family: "Jost", sans-serif;
+  position: relative;
+  padding: 0px 20px;
+
+  //tablet view
+  @media screen and (min-width: 415px) {
+    width: 96%;
+  }
 `;
 
-const LinkWrapper= styled.div`
-  display: none;
-  @media screen and (min-width: 414px) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 16rem;
+const LinkWrapper = styled.div`
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  top: 45px;
+  left: 0;
+  z-index: 2;
+  flex-direction: column;
+  padding: 40px 20px;
+  height: 235px;
+  justify-content: space-between;
+ 
 
+  //tablet view
+  @media screen and (min-width: 415px) {
+    display: flex !important;
+    align-items: center;
+    width: 20rem;
+    position: unset;
+    flex-direction: row;
+    top: unset;
+    background-color: unset;
+    z-index: unset;
+    height: unset;
   }
 
   @media screen and (min-width: 843px) {
-    width:370px
   }
 `;
 
 const LinkTag = styled(Link)`
   text-decoration: none;
-  ${({ color }) => handleColorType(color)};
-  font-weight: 700;
-  font-size: 12px;
+  color: white;
+  font-weight: 500;
+  font-size: 24px;
+
+  @media screen and (min-width: 415px) {
+    ${({ color }) => handleColorType(color)};
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+  }
 `;
 
 const LogoContainer = styled.img`
-  width: 200px;
-  @media screen and (min-width: 414px) {
+  width: 180px;
+  @media screen and (min-width: 415px) {
     width: 120px;
-
-	}
+  }
 `;
 
-
 const MobileNavIcon = styled.div`
-width: 24px;
+  width: 24px;
 
-
-  @media screen and (min-width: 414px) {
+  @media screen and (min-width: 415px) {
     display: none;
-
-	}
+  }
 `;
 
 const NavOpen = styled.img``;
@@ -74,25 +100,61 @@ const NavClose = styled.img`
 
 //styled component
 
-export const Navbar = ({ tablet, mobile,  color, ...props }) => {
-  // const [nav, useNav] = useState(false)
-  // const handleClick = () =>{
-  //   useNav(!nav)
-  // }
-  return (
-    <NavSytle mobile={mobile} tablet={tablet}>
-      <LogoContainer alt="logo" src={logo}></LogoContainer>
+export const Navbar = ({ tablet, mobile, color, ...props }) => {
+  const [menuOpened, setMenuOpend] = useState(false);
+  const [menuClosed, setMenuClosed] = useState(false);
 
-      <LinkWrapper>
-        <LinkTag color={color} to="/about">OUR COMPANY</LinkTag>
-        <LinkTag to="/location">LOCATIONS</LinkTag>
-        <LinkTag to="/contact">CONTACT</LinkTag>
-      </LinkWrapper>
-      <MobileNavIcon>
-        <NavOpen src={ham} alt="open menu"></NavOpen>
-        <NavClose src={iconClose} alt="icon close"></NavClose>
-      </MobileNavIcon>
-    </NavSytle>
+  const slideMenu = () => {
+    return menuOpened ? {} : { display: "none", marginLeft: -930 };
+  };
+
+  const flipIcons = () => {
+    return menuOpened ? { display: "block" } : {};
+  };
+
+  const removeHam = () => {
+    return menuOpened ? { display: "none" } : {};
+  };
+
+  const menuIconClicked = () => {
+    setMenuOpend(!menuOpened);
+    return menuClosed ? {} : { display: "block" };
+  };
+
+  const closeIconClicked = () => {
+    setMenuOpend(false);
+  };
+
+  return (
+    <Container>
+      <NavSytle mobile={mobile} tablet={tablet}>
+        <LinkTag to="/">
+          <LogoContainer alt="logo" src={logo}></LogoContainer>
+        </LinkTag>
+
+        <LinkWrapper style={slideMenu()}>
+          <LinkTag color={color} to="/about">
+            OUR COMPANY
+          </LinkTag>
+          <LinkTag to="/location">LOCATIONS</LinkTag>
+          <LinkTag to="/contact">CONTACT</LinkTag>
+        </LinkWrapper>
+        <MobileNavIcon>
+          <NavOpen
+            style={removeHam()}
+            onClick={() => menuIconClicked()}
+            src={ham}
+            alt="open menu"
+          ></NavOpen>
+          <NavClose
+            style={flipIcons()}
+            onClick={() => closeIconClicked()}
+            src={iconClose}
+            alt="icon close"
+          ></NavClose>
+        </MobileNavIcon>
+      </NavSytle>
+    </Container>
   );
 };
 

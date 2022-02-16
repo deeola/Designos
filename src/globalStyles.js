@@ -6,17 +6,17 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   font-family: 'Jost', sans-serif;
+
   }
 `;
 
 export const Container = styled.div`
-  width: 94%;
+  width: 100%;
   margin: 20px auto;
-  border-radius: 10px;
 
-  @media screen and (max-width: 414px) {
-    width: 100%;
-    border-radius: unset;
+  @media screen and (min-width: 415px) {
+    width: 96%;
+  
   }
 `;
 
